@@ -1,0 +1,10 @@
+I thought it was kind of neat that we could upload to this database from any
+personal device as long as we had the appropriate password and port.
+The idea of having real time updates to this shared database is kind of
+interesting. Personally, I do not really know much about how DBMSs work,
+or what the cloud really is, so maybe some of the coolness of this project
+was lost as me. However, being able to run stuff on Microsoft's servers rather
+than my slow and old laptop was pretty neat. One thing I am curious about however
+is how Microsoft maintains proper security for their databases while storing
+them on the cloud, and how INSERTS and queries are properly protected. I
+do not really know much about security of this fashion, but would be interested to learn.
