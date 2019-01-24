@@ -1,0 +1,16 @@
+# Description:
+create zack 1234 -10
+create zack 1234 100
+create zack 34 10000
+create ZaCK 2324 10
+quit
+*
+#
+# expected output 
+#
+Failed to create user
+Created user zack
+Failed to create user
+Failed to create user
+Goodbye
+*

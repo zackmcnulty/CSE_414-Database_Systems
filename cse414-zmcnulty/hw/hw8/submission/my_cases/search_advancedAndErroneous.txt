@@ -1,0 +1,37 @@
+# Description: test behavior on errorneous inputs, such as a nonpositive count for the number of itineraries, or a direct
+#flight from a city to itself. Also, check whether cancelled flights are properly filtered outs
+# user1
+search "Seattle WA" "Boston MA" 1 10 3
+search "Seattle WA" "Boston MA" 1 18 12
+search "Seattle WA" "Boston MA" 1 10 0
+search "Seattle WA" "Boston MA" 1 10 -5
+search "Seattle WA" "Seattle WA" 1 10 5
+quit
+*
+Itinerary 0: 1 flight(s), 309 minutes
+ID: 708454 Day: 10 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 309 Capacity: 5 Price: 677
+Itinerary 1: 1 flight(s), 310 minutes
+ID: 726917 Day: 10 Carrier: B6 Number: 1698 Origin: Seattle WA Dest: Boston MA Duration: 310 Capacity: 2 Price: 886
+Itinerary 2: 1 flight(s), 312 minutes
+ID: 704756 Day: 10 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 312 Capacity: 12 Price: 995
+Itinerary 0: 1 flight(s), 293 minutes
+ID: 734456 Day: 18 Carrier: B6 Number: 1698 Origin: Seattle WA Dest: Boston MA Duration: 293 Capacity: 17 Price: 746
+Itinerary 1: 1 flight(s), 298 minutes
+ID: 733502 Day: 18 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 298 Capacity: 5 Price: 482
+Itinerary 2: 1 flight(s), 302 minutes
+ID: 60125 Day: 18 Carrier: AS Number: 12 Origin: Seattle WA Dest: Boston MA Duration: 302 Capacity: 7 Price: 112
+Itinerary 3: 1 flight(s), 303 minutes
+ID: 711062 Day: 18 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 303 Capacity: 7 Price: 966
+Itinerary 4: 1 flight(s), 304 minutes
+ID: 710658 Day: 18 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 304 Capacity: 19 Price: 800
+Itinerary 5: 1 flight(s), 309 minutes
+ID: 60471 Day: 18 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 309 Capacity: 15 Price: 633
+Itinerary 6: 1 flight(s), 319 minutes
+ID: 733697 Day: 18 Carrier: B6 Number: 998 Origin: Seattle WA Dest: Boston MA Duration: 319 Capacity: 7 Price: 271
+Itinerary 7: 1 flight(s), 321 minutes
+ID: 710650 Day: 18 Carrier: AS Number: 12 Origin: Seattle WA Dest: Boston MA Duration: 321 Capacity: 3 Price: 619
+Failed to search
+Failed to search
+No flights match your selection
+Goodbye
+*

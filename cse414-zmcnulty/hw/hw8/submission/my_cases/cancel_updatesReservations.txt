@@ -1,0 +1,33 @@
+# Description: checks whether canceling updates the reservation table and does not affect the new reservation ID value
+create user1 pw 10000
+login user1 pw
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+search "Seattle WA" "Boston MA" 1 3 2 
+book 0
+cancel 2
+reservations
+book 1
+reservations
+quit
+*
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Itinerary 0: 1 flight(s), 303 minutes
+ID: 704187 Day: 3 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 303 Capacity: 17 Price: 421
+Itinerary 1: 1 flight(s), 304 minutes
+ID: 704611 Day: 3 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 304 Capacity: 6 Price: 477
+Booked flight(s), reservation ID: 2
+Canceled reservation 2
+Reservation 1 paid: false:
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 3
+Reservation 1 paid: false:
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Reservation 3 paid: false:
+ID: 704611 Day: 3 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 304 Capacity: 6 Price: 477
+Goodbye
+*

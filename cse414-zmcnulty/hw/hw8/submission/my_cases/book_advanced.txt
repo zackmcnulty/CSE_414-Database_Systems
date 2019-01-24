@@ -1,0 +1,151 @@
+# Description: tries to book a full flight, tries to book a two hop flight with one flight with no capacity, tries
+# to book two separate reservations on the same day, books flight that the user doesnt have the money to pay for.
+create user1 pw 10
+search "Seattle WA" "Boston MA" 0 14 30
+book 7
+login user1 pw
+book -1
+book 25
+book 0
+book 11
+search "Chicago IL" "Boston MA" 1 10 22
+book 21
+quit
+#
+*
+#
+Created user user1
+Itinerary 0: 1 flight(s), 294 minutes
+ID: 730092 Day: 14 Carrier: B6 Number: 1698 Origin: Seattle WA Dest: Boston MA Duration: 294 Capacity: 8 Price: 807
+Itinerary 1: 1 flight(s), 304 minutes
+ID: 729128 Day: 14 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 304 Capacity: 7 Price: 888
+Itinerary 2: 1 flight(s), 308 minutes
+ID: 60467 Day: 14 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 308 Capacity: 14 Price: 103
+Itinerary 3: 1 flight(s), 313 minutes
+ID: 729327 Day: 14 Carrier: B6 Number: 998 Origin: Seattle WA Dest: Boston MA Duration: 313 Capacity: 4 Price: 952
+Itinerary 4: 1 flight(s), 315 minutes
+ID: 711574 Day: 14 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 315 Capacity: 16 Price: 600
+Itinerary 5: 1 flight(s), 316 minutes
+ID: 60121 Day: 14 Carrier: AS Number: 12 Origin: Seattle WA Dest: Boston MA Duration: 316 Capacity: 15 Price: 321
+Itinerary 6: 1 flight(s), 319 minutes
+ID: 707876 Day: 14 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 319 Capacity: 18 Price: 560
+Itinerary 7: 1 flight(s), 324 minutes
+ID: 707866 Day: 14 Carrier: AS Number: 12 Origin: Seattle WA Dest: Boston MA Duration: 324 Capacity: 11 Price: 927
+Itinerary 8: 2 flight(s), 334 minutes
+ID: 723225 Day: 14 Carrier: AA Number: 1519 Origin: Seattle WA Dest: Chicago IL Duration: 213 Capacity: 17 Price: 374
+ID: 1080239 Day: 14 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 9 Price: 913
+Itinerary 9: 2 flight(s), 335 minutes
+ID: 1005846 Day: 14 Carrier: UA Number: 1977 Origin: Seattle WA Dest: Chicago IL Duration: 214 Capacity: 11 Price: 455
+ID: 1080239 Day: 14 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 9 Price: 913
+Itinerary 10: 2 flight(s), 336 minutes
+ID: 302481 Day: 14 Carrier: NW Number: 216 Origin: Seattle WA Dest: Detroit MI Duration: 237 Capacity: 13 Price: 199
+ID: 782871 Day: 14 Carrier: DL Number: 1822 Origin: Detroit MI Dest: Boston MA Duration: 99 Capacity: 13 Price: 280
+Itinerary 11: 2 flight(s), 337 minutes
+ID: 341854 Day: 14 Carrier: NW Number: 1928 Origin: Seattle WA Dest: Minneapolis MN Duration: 175 Capacity: 2 Price: 604
+ID: 313100 Day: 14 Carrier: NW Number: 588 Origin: Minneapolis MN Dest: Boston MA Duration: 162 Capacity: 16 Price: 152
+Itinerary 12: 2 flight(s), 337 minutes
+ID: 341854 Day: 14 Carrier: NW Number: 1928 Origin: Seattle WA Dest: Minneapolis MN Duration: 175 Capacity: 2 Price: 604
+ID: 779314 Day: 14 Carrier: DL Number: 808 Origin: Minneapolis MN Dest: Boston MA Duration: 162 Capacity: 5 Price: 702
+Itinerary 13: 2 flight(s), 337 minutes
+ID: 707878 Day: 14 Carrier: AS Number: 26 Origin: Seattle WA Dest: Chicago IL Duration: 216 Capacity: 9 Price: 326
+ID: 1080239 Day: 14 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 9 Price: 913
+Itinerary 14: 2 flight(s), 337 minutes
+ID: 723225 Day: 14 Carrier: AA Number: 1519 Origin: Seattle WA Dest: Chicago IL Duration: 213 Capacity: 17 Price: 374
+ID: 478907 Day: 14 Carrier: UA Number: 540 Origin: Chicago IL Dest: Boston MA Duration: 124 Capacity: 7 Price: 202
+Itinerary 15: 2 flight(s), 337 minutes
+ID: 1005801 Day: 14 Carrier: UA Number: 1949 Origin: Seattle WA Dest: Chicago IL Duration: 216 Capacity: 6 Price: 390
+ID: 1080239 Day: 14 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 9 Price: 913
+Itinerary 16: 2 flight(s), 338 minutes
+ID: 300821 Day: 14 Carrier: NW Number: 154 Origin: Seattle WA Dest: Minneapolis MN Duration: 176 Capacity: 6 Price: 383
+ID: 313100 Day: 14 Carrier: NW Number: 588 Origin: Minneapolis MN Dest: Boston MA Duration: 162 Capacity: 16 Price: 152
+Itinerary 17: 2 flight(s), 338 minutes
+ID: 300821 Day: 14 Carrier: NW Number: 154 Origin: Seattle WA Dest: Minneapolis MN Duration: 176 Capacity: 6 Price: 383
+ID: 779314 Day: 14 Carrier: DL Number: 808 Origin: Minneapolis MN Dest: Boston MA Duration: 162 Capacity: 5 Price: 702
+Itinerary 18: 2 flight(s), 338 minutes
+ID: 723225 Day: 14 Carrier: AA Number: 1519 Origin: Seattle WA Dest: Chicago IL Duration: 213 Capacity: 17 Price: 374
+ID: 647629 Day: 14 Carrier: AA Number: 1240 Origin: Chicago IL Dest: Boston MA Duration: 125 Capacity: 10 Price: 168
+Itinerary 19: 2 flight(s), 338 minutes
+ID: 781297 Day: 14 Carrier: DL Number: 2547 Origin: Seattle WA Dest: Minneapolis MN Duration: 176 Capacity: 14 Price: 835
+ID: 313100 Day: 14 Carrier: NW Number: 588 Origin: Minneapolis MN Dest: Boston MA Duration: 162 Capacity: 16 Price: 152
+Itinerary 20: 2 flight(s), 338 minutes
+ID: 781297 Day: 14 Carrier: DL Number: 2547 Origin: Seattle WA Dest: Minneapolis MN Duration: 176 Capacity: 14 Price: 835
+ID: 779314 Day: 14 Carrier: DL Number: 808 Origin: Minneapolis MN Dest: Boston MA Duration: 162 Capacity: 5 Price: 702
+Itinerary 21: 2 flight(s), 338 minutes
+ID: 1005846 Day: 14 Carrier: UA Number: 1977 Origin: Seattle WA Dest: Chicago IL Duration: 214 Capacity: 11 Price: 455
+ID: 478907 Day: 14 Carrier: UA Number: 540 Origin: Chicago IL Dest: Boston MA Duration: 124 Capacity: 7 Price: 202
+Itinerary 22: 2 flight(s), 338 minutes
+ID: 1082451 Day: 14 Carrier: WN Number: 1116 Origin: Seattle WA Dest: Chicago IL Duration: 217 Capacity: 2 Price: 926
+ID: 1080239 Day: 14 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 9 Price: 913
+Itinerary 23: 2 flight(s), 339 minutes
+ID: 302481 Day: 14 Carrier: NW Number: 216 Origin: Seattle WA Dest: Detroit MI Duration: 237 Capacity: 13 Price: 199
+ID: 782607 Day: 14 Carrier: DL Number: 1622 Origin: Detroit MI Dest: Boston MA Duration: 102 Capacity: 9 Price: 495
+Itinerary 24: 2 flight(s), 339 minutes
+ID: 723225 Day: 14 Carrier: AA Number: 1519 Origin: Seattle WA Dest: Chicago IL Duration: 213 Capacity: 17 Price: 374
+ID: 11931 Day: 14 Carrier: AA Number: 542 Origin: Chicago IL Dest: Boston MA Duration: 126 Capacity: 2 Price: 287
+Itinerary 25: 2 flight(s), 339 minutes
+ID: 723225 Day: 14 Carrier: AA Number: 1519 Origin: Seattle WA Dest: Chicago IL Duration: 213 Capacity: 17 Price: 374
+ID: 1080242 Day: 14 Carrier: WN Number: 3299 Origin: Chicago IL Dest: Boston MA Duration: 126 Capacity: 0 Price: 109
+Itinerary 26: 2 flight(s), 339 minutes
+ID: 782442 Day: 14 Carrier: DL Number: 1491 Origin: Seattle WA Dest: Detroit MI Duration: 240 Capacity: 18 Price: 762
+ID: 782871 Day: 14 Carrier: DL Number: 1822 Origin: Detroit MI Dest: Boston MA Duration: 99 Capacity: 13 Price: 280
+Itinerary 27: 2 flight(s), 339 minutes
+ID: 1005846 Day: 14 Carrier: UA Number: 1977 Origin: Seattle WA Dest: Chicago IL Duration: 214 Capacity: 11 Price: 455
+ID: 647629 Day: 14 Carrier: AA Number: 1240 Origin: Chicago IL Dest: Boston MA Duration: 125 Capacity: 10 Price: 168
+Itinerary 28: 2 flight(s), 339 minutes
+ID: 1082452 Day: 14 Carrier: WN Number: 3060 Origin: Seattle WA Dest: Chicago IL Duration: 218 Capacity: 1 Price: 957
+ID: 1080239 Day: 14 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 9 Price: 913
+Itinerary 29: 1 flight(s), 340 minutes
+ID: 729175 Day: 14 Carrier: B6 Number: 598 Origin: Seattle WA Dest: Boston MA Duration: 340 Capacity: 12 Price: 252
+Cannot book reservations, not logged in
+Logged in as user1
+No such itinerary -1
+Booking failed
+Booked flight(s), reservation ID: 1
+You cannot book two flights in the same day
+Itinerary 0: 1 flight(s), 121 minutes
+ID: 649515 Day: 10 Carrier: AA Number: 1299 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 14 Price: 708
+Itinerary 1: 1 flight(s), 121 minutes
+ID: 1064246 Day: 10 Carrier: WN Number: 277 Origin: Chicago IL Dest: Boston MA Duration: 121 Capacity: 16 Price: 868
+Itinerary 2: 1 flight(s), 123 minutes
+ID: 638226 Day: 10 Carrier: AA Number: 366 Origin: Chicago IL Dest: Boston MA Duration: 123 Capacity: 1 Price: 123
+Itinerary 3: 1 flight(s), 123 minutes
+ID: 739565 Day: 10 Carrier: AA Number: 2503 Origin: Chicago IL Dest: Boston MA Duration: 123 Capacity: 12 Price: 924
+Itinerary 4: 1 flight(s), 124 minutes
+ID: 1012886 Day: 10 Carrier: UA Number: 1195 Origin: Chicago IL Dest: Boston MA Duration: 124 Capacity: 1 Price: 802
+Itinerary 5: 1 flight(s), 124 minutes
+ID: 1064250 Day: 10 Carrier: WN Number: 4821 Origin: Chicago IL Dest: Boston MA Duration: 124 Capacity: 16 Price: 251
+Itinerary 6: 1 flight(s), 126 minutes
+ID: 55322 Day: 10 Carrier: AA Number: 2276 Origin: Chicago IL Dest: Boston MA Duration: 126 Capacity: 18 Price: 551
+Itinerary 7: 1 flight(s), 126 minutes
+ID: 647625 Day: 10 Carrier: AA Number: 1240 Origin: Chicago IL Dest: Boston MA Duration: 126 Capacity: 7 Price: 838
+Itinerary 8: 1 flight(s), 126 minutes
+ID: 664321 Day: 10 Carrier: AA Number: 1557 Origin: Chicago IL Dest: Boston MA Duration: 126 Capacity: 12 Price: 260
+Itinerary 9: 1 flight(s), 127 minutes
+ID: 726291 Day: 10 Carrier: B6 Number: 112 Origin: Chicago IL Dest: Boston MA Duration: 127 Capacity: 3 Price: 562
+Itinerary 10: 1 flight(s), 127 minutes
+ID: 726700 Day: 10 Carrier: B6 Number: 1012 Origin: Chicago IL Dest: Boston MA Duration: 127 Capacity: 10 Price: 736
+Itinerary 11: 1 flight(s), 128 minutes
+ID: 634033 Day: 10 Carrier: AA Number: 288 Origin: Chicago IL Dest: Boston MA Duration: 128 Capacity: 8 Price: 174
+Itinerary 12: 1 flight(s), 128 minutes
+ID: 1009047 Day: 10 Carrier: UA Number: 448 Origin: Chicago IL Dest: Boston MA Duration: 128 Capacity: 5 Price: 386
+Itinerary 13: 1 flight(s), 129 minutes
+ID: 631850 Day: 10 Carrier: AA Number: 186 Origin: Chicago IL Dest: Boston MA Duration: 129 Capacity: 14 Price: 228
+Itinerary 14: 1 flight(s), 129 minutes
+ID: 1064249 Day: 10 Carrier: WN Number: 3299 Origin: Chicago IL Dest: Boston MA Duration: 129 Capacity: 1 Price: 154
+Itinerary 15: 1 flight(s), 130 minutes
+ID: 478991 Day: 10 Carrier: UA Number: 542 Origin: Chicago IL Dest: Boston MA Duration: 130 Capacity: 18 Price: 875
+Itinerary 16: 1 flight(s), 130 minutes
+ID: 1064248 Day: 10 Carrier: WN Number: 2960 Origin: Chicago IL Dest: Boston MA Duration: 130 Capacity: 6 Price: 401
+Itinerary 17: 1 flight(s), 131 minutes
+ID: 478347 Day: 10 Carrier: UA Number: 526 Origin: Chicago IL Dest: Boston MA Duration: 131 Capacity: 4 Price: 640
+Itinerary 18: 1 flight(s), 131 minutes
+ID: 478662 Day: 10 Carrier: UA Number: 534 Origin: Chicago IL Dest: Boston MA Duration: 131 Capacity: 18 Price: 691
+Itinerary 19: 1 flight(s), 131 minutes
+ID: 726395 Day: 10 Carrier: B6 Number: 312 Origin: Chicago IL Dest: Boston MA Duration: 131 Capacity: 4 Price: 966
+Itinerary 20: 1 flight(s), 131 minutes
+ID: 726442 Day: 10 Carrier: B6 Number: 412 Origin: Chicago IL Dest: Boston MA Duration: 131 Capacity: 6 Price: 465
+Itinerary 21: 1 flight(s), 131 minutes
+ID: 921607 Day: 10 Carrier: NK Number: 708 Origin: Chicago IL Dest: Boston MA Duration: 131 Capacity: 0 Price: 617
+Booking failed
+Goodbye
+*

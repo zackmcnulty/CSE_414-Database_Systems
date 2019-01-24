@@ -1,0 +1,52 @@
+# Description: tries to pay for a reservation by someone else, tries to pay for a reservation they already paid for
+# tries to pay for a reservation that they do not have the money for, tries to pay while not logged in.
+# user1
+create user1 pw 10000
+login user1 pw
+search "Seattle WA" "Boston MA" 1 15 1
+book 0
+pay 1
+quit
+*
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 308 minutes
+ID: 730445 Day: 15 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 308 Capacity: 12 Price: 523
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 9477
+Goodbye
+#
+|
+#
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 308 minutes
+ID: 730445 Day: 15 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 308 Capacity: 12 Price: 523
+Booked flight(s), reservation ID: 2
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+*
+# user 2
+create user2 pw 10
+login user2 pw
+search "Seattle WA" "Boston MA" 1 15 1
+book 0
+pay 2
+quit
+*
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 308 minutes
+ID: 730445 Day: 15 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 308 Capacity: 12 Price: 523
+Booked flight(s), reservation ID: 2
+User has only 10 in account but itinerary costs 523
+Goodbye
+|
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 308 minutes
+ID: 730445 Day: 15 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 308 Capacity: 12 Price: 523
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 2 under user: user2
+Goodbye
+*
