@@ -1,0 +1,122 @@
+/************ data model **************/
+.symbol_type PersonType
+.symbol_type DescriptionType
+
+.decl person(name:PersonType, description:DescriptionType)
+.input person(filename="DATA/person.facts")
+
+.decl female(name:PersonType)
+.input female(filename="DATA/female.facts")
+
+.decl male(name:PersonType)
+.input male(filename="DATA/male.facts")
+
+.decl parent_child(p1:PersonType, p2:PersonType)
+.input parent_child(filename="DATA/parent_child.facts")
+
+.decl person_living(p:PersonType)
+.input person_living(filename="DATA/person_living.facts")
+
+/************* problem 0 **************/
+/**** Find all children of Priscilla ****/
+.decl p0(x:PersonType, d:DescriptionType)
+.output p0(filename="hw4-0.ans")
+.output p0(IO=stdout)
+
+p0(x,d) :- parent_child("Priscilla",x), person(x,d).
+
+// NOTE: DO NOT remove the declarations or the .output statements below.
+// you can ignore any "No rules/facts defined for relation" warnings when you
+// have not defined the rules for those relations
+/************* problem 1 **************/
+.decl p1(x:PersonType,d:DescriptionType)
+
+.output p1(filename="hw4-1.ans")
+.output p1(IO=stdout)
+
+p1(x,d) :- p0(x,d). //people who are direct children of "Priscilla"
+p1(x,d) :- p1(a,_), parent_child(a,x), person(x,d).
+
+
+//testing
+//.decl test(c:number)
+//.output test(IO=stdout)
+//test(c) :- c = count: p1(_,_).
+
+
+
+
+
+
+
+
+/************* problem 2 **************/
+.decl p2(x:PersonType, d:DescriptionType, m:number)
+.decl T(p:PersonType , c:number) // keeps track of total number children 
+
+.output p2(filename="hw4-2.ans")
+.output p2(IO=stdout)
+
+T(p,c) :- person(p,_), c = count: {parent_child(p,_)}.
+
+// declaring the rule twice acts as a union
+p2(x,d,m) :- person(x,d), female(x), T(x,m), m = max c : {T(p,c), female(p)}.
+p2(x,d,m) :- person(x,d), male(x), T(x,m), m = max c : {T(p,c), male(p)}.
+
+
+
+// testing
+//.output T(IO=stdout)
+
+
+
+/************* problem 3 **************/
+.decl p3(x:PersonType, m1:number, m2:number)
+.decl gens(x:PersonType, gen:number) // keeps track of the generation for each person; will be duplicates
+.decl hasParent(x:PersonType) 
+
+.output p3(filename="hw4-3.ans")
+.output p3(IO=stdout)
+
+hasParent(x) :- person(x,_), parent_child(_,x). 
+gens(x, gen) :- person(x,_), !hasParent(x), gen = 0. // start with people who have no known parents, and thus are gen 0.
+gens(x, gen) :- gens(y,g0), parent_child(y,x), gen = g0 + 1.
+
+p3(x,m1,m2) :- person_living(x), m1 = min gen : {gens(x,gen)}, m2 = max gen : {gens(x,gen)}.
+
+
+
+
+
+/************* problem 4 **************/
+.decl p4(x:PersonType)
+.decl female_ancestors(x:PersonType, y:PersonType)
+.decl not_MCA(x:PersonType)
+.output p4(filename="hw4-4.ans")
+.output p4(IO=stdout)
+
+// finds females who are direct ancestors of a living person
+female_ancestors(x,y) :- person_living(y), female(x), parent_child(x,y).
+
+//finds ALL females who are ancestors of at least 1 living person
+female_ancestors(x,z) :- female_ancestors(y,z), female(x), parent_child(x,y). 
+
+not_MCA(x) :- female_ancestors(x,_), person_living(y), !female_ancestors(x,y).
+p4(x) :- female_ancestors(x,_), !not_MCA(x).
+
+
+/************* problem 5 **************/
+.decl p5(x:PersonType)
+.decl not_MRCA(x:PersonType)
+.output p5(filename="hw4-5.ans")
+.output p5(IO=stdout)
+
+// If there are multiple MCAs, then it must be true that some are descendants of the others.
+// Why? The MRCA represents the smallest binary subtree which contains all living leafs. Thus,
+// If other MCAs exist, they must lie above this node. The MRCAs mother is naturally also an
+// MCA, and her mother's mother must be an MCA, and so on. Thus, the MRCA is the only MCA
+// without another MCA child.
+not_MRCA(x) :- p4(x), p4(y), parent_child(x,y).
+p5(x) :- p4(x), !not_MRCA(x).
+
+
