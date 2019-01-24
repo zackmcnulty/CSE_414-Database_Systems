@@ -1,0 +1,27 @@
+/* runtime : 90 seconds */
+
+SELECT DISTINCT c1.name as first_country, c2.name as second_country 
+
+
+/* find all countries that share a sea. The cid1 < cid2 condition prevents
+the duplicates (i.e. (France, France) or (Korea, France) and (France, Korea) */
+ FROM (SELECT cid1, cid2
+	FROM hw5.world as x, x.mondial.sea as s, 
+	split(s.`-country`, ' ') as cid1, split(s.`-country`, ' ') as cid2
+
+	WHERE cid1 < cid2 ) as shared_seas,
+
+	
+	(SELECT cid1, cid2
+	FROM hw5.world as x, x.mondial.mountain as m, 
+	split(m.`-country`, ' ') as cid1, split(m.`-country`, ' ') as cid2
+
+	WHERE cid1 < cid2) as shared_mountains, 
+	
+	hw5.world as x,
+	x.mondial.country as c1, x.mondial.country as c2
+
+WHERE shared_seas.cid1 = shared_mountains.cid1 AND
+	shared_seas.cid2 = shared_mountains.cid2 AND
+	c1.`-car_code` = shared_seas.cid1 AND
+	c2.`-car_code` = shared_seas.cid2

@@ -1,0 +1,16 @@
+/* runtime 13 seconds */
+SELECT c1.name as first_country, c2.name as second_country, shared_seas as seas, shared_mountains as mountains
+FROM hw5index.country as c1, hw5index.country as c2
+
+LET shared_seas = (SELECT s.name as sea 
+	FROM  hw5index.sea as s, split(s.`-country`, ' ') as cid1, split(s.`-country`, ' ') as cid2
+	WHERE cid1 = c1.`-car_code` AND cid2 = c2.`-car_code`),
+
+shared_mountains = (SELECT m.name as mountain 
+	FROM  hw5index.mountain as m, split(m.`-country`, ' ') as cid1, split(m.`-country`, ' ') as cid2
+	WHERE cid1 = c1.`-car_code` AND cid2 = c2.`-car_code`)
+
+WHERE c1.name < c2.name AND
+	ARRAY_COUNT(shared_seas) > 0 AND
+	ARRAY_COUNT(shared_mountains) > 0	
+
